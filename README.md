@@ -8,7 +8,7 @@ Official implementation for the paper **"PartProtoVAE: ..."**.
 
 ## Overview
 
-PartProtoVAE is a prototypical-part network that combines a Variational Autoencoder (VAE) bottleneck with a prototype-based classifier. The model learns interpretable prototypes — representative image patches — that are used directly in the classification decision. Training proceeds in five sequential stages ending in a convex last-layer optimisation.
+PartProtoVAE is a prototypical-part network that combines a Variational Autoencoder (VAE) bottleneck with a prototype-based classifier.
 
 ---
 
@@ -59,14 +59,13 @@ tensorboard
 numpy
 pandas
 opencv-python
-Pillow
 tqdm
 ```
-
+Docker image: shiska07/pytorch_lightning
 
 ## Dataset Setup
 
-The model is trained and evaluated on **CUB-200-2011**. Followed ProtoPNet (Chen et al.) instructions for tain/test split and augmentation.
+The model is trained and evaluated on **CUB-200-2011**. Followed ProtoPNet (Chen et al.) instructions for train/test split and augmentation.
 
 `datasets/cub200_cropped/` must contain both the original CUB metadata files and the pre-cropped image splits. The metadata files (`images.txt`, `image_class_labels.txt`, `train_test_split.txt`, `bounding_boxes.txt`, `parts/`) can be copied from the original `CUB_200_2011/` download. Pre-cropped images can be prepared using the preprocessing scripts provided in `src/utils/`.
 
@@ -186,7 +185,7 @@ Results are saved to `{img_dir}/{base_architecture}/{session_name}/{model_name}/
 
 | Argument | Default | Description |
 |---|---|---|
-| `--img_dir` | — | Directory containing the image to analyse |
+| `--img_dir` | — | Directory containing the image to analyze |
 | `--img_name` | — | Image filename |
 | `--img_class` | `-1` | Ground-truth class index (`-1` if unknown) |
 | `--session_name` | `session1` | Session whose model to load |
